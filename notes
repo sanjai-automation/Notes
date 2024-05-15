@@ -1,0 +1,153 @@
+Microsoft Windows [Version 10.0.20348.2322]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\labuser>cd c:\\gitpractise
+
+c:\gitpractise>cd..
+
+c:\>git clone "https://github.com/sanjai-automation/Gitrepo.git"
+Cloning into 'Gitrepo'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+
+c:\>cd c:\\gitrepo
+
+c:\Gitrepo>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+c:\Gitrepo>git branch
+* main
+
+c:\Gitrepo>echo > "new file" > repofile1.txt
+
+c:\Gitrepo>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        repofile1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+c:\Gitrepo>git add*
+git: 'add*' is not a git command. See 'git --help'.
+
+The most similar command is
+        add
+
+c:\Gitrepo>git add *
+
+c:\Gitrepo>git commit -m "repofile1.txt is commited"
+[main a1c2afb] repofile1.txt is commited
+ 1 file changed, 1 insertion(+)
+ create mode 100644 repofile1.txt
+
+c:\Gitrepo>git remote add rep "https://github.com/sanjai-automation/Gitrepo.git"
+
+c:\Gitrepo>git push rep main
+info: please complete authentication in your browser...
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 299 bytes | 299.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/sanjai-automation/Gitrepo.git
+   d5ad49d..a1c2afb  main -> main
+
+c:\Gitrepo>git pull rep mail
+fatal: couldn't find remote ref mail
+
+c:\Gitrepo>git pull rep main
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 1.07 KiB | 25.00 KiB/s, done.
+From https://github.com/sanjai-automation/Gitrepo
+ * branch            main       -> FETCH_HEAD
+   a1c2afb..c2069eb  main       -> rep/main
+Updating a1c2afb..c2069eb
+Fast-forward
+ git file | 4 ++++
+ 1 file changed, 4 insertions(+)
+ create mode 100644 git file
+
+c:\Gitrepo>git branch ver1.0
+
+c:\Gitrepo>git branch
+* main
+  ver1.0
+
+c:\Gitrepo>git checkout ver1.0
+Switched to branch 'ver1.0'
+
+c:\Gitrepo>echo "This file is created in a branch ver1.0" >ver1file.txt
+
+c:\Gitrepo>git push --set-upstream rep Ver1.0
+fatal: Ver1.0 cannot be resolved to branch
+
+c:\Gitrepo>git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+c:\Gitrepo>git branch
+* main
+  ver1.0
+
+c:\Gitrepo>git push --set-upstream rep Ver1.0
+fatal: Ver1.0 cannot be resolved to branch
+
+c:\Gitrepo>git checkout v1.0
+error: pathspec 'v1.0' did not match any file(s) known to git
+
+c:\Gitrepo>git checkout ver1.0
+Switched to branch 'ver1.0'
+
+c:\Gitrepo>git status
+On branch ver1.0
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ver1file.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+c:\Gitrepo>git add *
+
+c:\Gitrepo>git commit -m "ver1file.txt commited"
+[ver1.0 2211feb] ver1file.txt commited
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ver1file.txt
+
+c:\Gitrepo>git switch main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+c:\Gitrepo>git push --set-upstream rep Ver1.0
+fatal: Ver1.0 cannot be resolved to branch
+
+c:\Gitrepo>git push --set-upstream rep ver1.0
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 319 bytes | 319.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'ver1.0' on GitHub by visiting:
+remote:      https://github.com/sanjai-automation/Gitrepo/pull/new/ver1.0
+remote:
+To https://github.com/sanjai-automation/Gitrepo.git
+ * [new branch]      ver1.0 -> ver1.0
+branch 'ver1.0' set up to track 'rep/ver1.0'.
+
+c:\Gitrepo>
